@@ -50,8 +50,13 @@ h2{
 	max-height: 400px;
 	padding: 1em;
 	display: grid;
-	grid-template-rows: 30px 1fr 20px 20px;
-	gap: 4px;
+	grid-template-rows: 30px 1fr 20px;
+	grid-template-columns: 1fr 100px;
+	grid-template-areas: 
+	"title title"
+	"image desc"
+	"del del";
+	gap: 10px;
 	border-left: solid gold 6px;
 	box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
 	border-radius: 4%;
@@ -59,8 +64,22 @@ h2{
 	align-items: center;
 }
 
+.card > h1{
+	grid-area: title;
+	font-size: 20px;
+}
+
+.card > p{
+	grid-area: desc;
+}
+
+.card > button{
+	grid-area: del;
+}
+
 .image{
 	width: auto;
+	grid-area: image;
 	max-height: 80%;
 	min-height: 100px;
 	background-color: grey;

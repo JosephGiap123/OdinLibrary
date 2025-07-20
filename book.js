@@ -1,7 +1,8 @@
 const myLibrary = [];
 
-const addButton = document.querySelector("submit-library");
-let contentCards = document.querySelector("cards");
+// const addButton = document.querySelector(".submit-library");
+let contentCards = document.querySelector(".cards");
+const form = document.querySelector('.form-add-book');
 
 function Book(title, author, pages, read){
 	if (!new.target) {
@@ -26,13 +27,43 @@ function addBookToLibrary(title, author, pages, read){
 	myLibrary.push(addedBook);
 }
 
-addBookToLibrary("Jaun", "Cain", 24, true);
-addBookToLibrary("Paul", "blahblah", 3, false);
-addBookToLibrary("robert", "Book of Books", 62, true);
-addBookToLibrary("Jaun", "Cahcah", 100, false);
+addBookToLibrary("Bookof Books", "John", 24, true);
+addBookToLibrary("Pauls Autobiography", "Paul", 3, false);
+addBookToLibrary("El Hombre", "Roberto", 62, true);
+addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K Rowling", 100, false);
 
 console.log(myLibrary)
 
 function updateLibrary(){
-	
+	let HTML = ``;
+	myLibrary.forEach((book)=>{
+		HTML += `
+			<div class="card">
+				<h1>${book.title}</h1>
+				<div class="image"></div>
+				<p>${book.author}, <br/> ${book.pages} pages, <br/>
+		`;
+		if(book.read) HTML += ` read already`;
+		else HTML += ` not read yet`;
+		HTML += `</p>
+				<button>Remove Book</button>
+			</div>`
+	})
+	contentCards.innerHTML = HTML;
 }
+
+form.addEventListener("submit", (event)=>{
+	event.preventDefault();
+
+	const data = new FormData(form);
+	const title = data.get('title');
+	const author = data.get('author');
+	const pages = data.get('pages');
+	const read = data.has('read-status');
+	console.log(read);
+	addBookToLibrary(title,author,pages,read);
+	updateLibrary();
+	form.reset();
+})
+
+updateLibrary();
