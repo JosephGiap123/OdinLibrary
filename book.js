@@ -22,6 +22,18 @@ Book.prototype.info = function(){
 		return string;
 }
 
+function removeBook(id){
+	found = false;
+	if(myLibrary.length === 0) return;
+	myLibrary.forEach((book, index)=>{
+		if(book.id === id){
+			myLibrary.splice(index, 1);
+			found = true;
+		}
+	})
+	if(!found) console.error("ID NOT FOUND, ERROR!");
+}
+
 function addBookToLibrary(title, author, pages, read){
 	const addedBook = new Book(title,author,pages,read);
 	myLibrary.push(addedBook);
@@ -46,10 +58,17 @@ function updateLibrary(){
 		if(book.read) HTML += ` read already`;
 		else HTML += ` not read yet`;
 		HTML += `</p>
-				<button>Remove Book</button>
+				<button class="delete-book" data-id=${book.id}>Remove Book</button>
 			</div>`
 	})
 	contentCards.innerHTML = HTML;
+	document.querySelectorAll(".delete-book").forEach((button)=>{
+		button.addEventListener("click", (event)=>{
+			const id = button.dataset.id;
+			removeBook(id);
+			updateLibrary();
+		});
+	});
 }
 
 form.addEventListener("submit", (event)=>{
