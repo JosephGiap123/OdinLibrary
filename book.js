@@ -1,5 +1,8 @@
 const myLibrary = [];
 
+const addButton = document.querySelector("submit-library");
+let contentCards = document.querySelector("cards");
+
 function Book(title, author, pages, read){
 	if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
@@ -18,6 +21,18 @@ Book.prototype.info = function(){
 		return string;
 }
 
-function addBookToLibrary(){
+function addBookToLibrary(title, author, pages, read){
+	const addedBook = new Book(title,author,pages,read);
+	myLibrary.push(addedBook);
+}
+
+addBookToLibrary("Jaun", "Cain", 24, true);
+addBookToLibrary("Paul", "blahblah", 3, false);
+addBookToLibrary("robert", "Book of Books", 62, true);
+addBookToLibrary("Jaun", "Cahcah", 100, false);
+
+console.log(myLibrary)
+
+function updateLibrary(){
 	
 }

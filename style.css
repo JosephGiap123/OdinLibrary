@@ -1,0 +1,84 @@
+body{
+	margin: 0;
+}
+
+.grid{
+	display: grid;
+	height: 100vh;
+	grid-template-rows:100px 1fr 100px;
+	grid-template-areas:
+	"header"
+	"cont"
+	"footer";
+}
+
+.header{
+	grid-area: header;
+	background-color: red;
+}
+
+.footer{
+	grid-area: footer;
+	background-color: blue;
+}
+
+h2{
+	padding-left: 26px;
+}
+
+.content{
+	display: grid;
+	grid-template-rows: 60px 1fr;
+	grid-template-columns: 1fr 200px;
+	grid-area: cont;
+	background-color: lightgray;
+}
+
+.cards{
+	max-height: calc(100vh - 200px - 4em);
+	display: grid;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	align-items: baseline;
+	background-color: lightgray;
+	gap: 24px;
+	padding: 24px;
+}
+
+.card{
+	max-height: 400px;
+	padding: 1em;
+	display: grid;
+	grid-template-rows: 30px 1fr 20px 20px;
+	gap: 4px;
+	border-left: solid gold 6px;
+	box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
+	border-radius: 4%;
+	background-color: white;
+	align-items: center;
+}
+
+.image{
+	width: auto;
+	max-height: 80%;
+	min-height: 100px;
+	background-color: grey;
+}
+
+
+.side-box{
+	background-color: none;
+	padding: 2em;
+}
+
+fieldset{
+	border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+input{
+	max-width: 130px;
+}
