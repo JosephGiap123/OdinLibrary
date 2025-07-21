@@ -10,35 +10,58 @@
 <body>
 	<div class="grid">
 		<header class="header">
+			<svg class="image-library"fill="#FFFFFF"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>library</title><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
 			<h1>Joseph's Library</h1>
+			<svg class="image-library"fill="#FFFFFF"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>library</title><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
 		</header>
 		<div class="content">
-			<h2>Your Library</h2>
-			<h2>Add Book to Library</h2>
+			<h2 class="libTitle">Your Library</h2>
 			<div class="cards">
 			</div>
-			<div class="side-box">
+			<div class="add-to-lib-box">
+				<h2>Add Book to Library</h2>
 				<form action="" class="form-add-book">
 					<fieldset>
 						<label for="title">Title of Book:</label>
-						<input type="text" id="title" name="title" required>
+						<input type="text" id="title" name="title" placeholder="" required>
 
 						<label for="title">Author of Book</label>
-						<input type="text" id="author" name="author" required>
+						<input type="text" id="author" name="author" placeholder="" required>
 
 						<label for="Page Count">Page Count</label>
-						<input type="number" id="pages" name="pages" min="0" value="0"required>
+						<input type="number" id="pages" name="pages" min="1" value="1"required>
 
-						<input type="checkbox" id="read-status" name="read-status">
+						<input class="checkbox"type="checkbox" id="read-status" name="read-status">
 						<label for="title">Read Book</label>
 
 						<input type="submit" value="Add Book to Library" class="submit-library">
 					</fieldset>
 				</form>
 			</div>
+			<div class="sort-lib">
+				<h2>Sort Books in Your Library</h2>
+				<form action="" class="sort-form">
+					<fieldset>
+						<label for="sortLib" id="sortLib">Sort By</label> <br>
+						<select name="sortLib" id="sortFilter">
+							<option selected value="title">Title</option>
+							<option value="author">Author Name</option>
+							<option value="pages">Page Count</option>
+							<option value="read">Read</option>
+						</select>
+
+						<select name="order" id="orderSort">
+							<option selected value="ascend">Ascending</option>
+							<option value="descend">Descending</option>
+						</select>
+
+						<input class="submit-sort"type="submit" value="Sort">
+					</fieldset>
+				</form>
+			</div>
 		</div>
 		<footer class="footer">
-
+			There's some stuff here too!
 		</footer>
 	</div>
 </body>
