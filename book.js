@@ -96,7 +96,7 @@ function updateLibrary(){
 			<div class="card">
 				<h1>${book.title}</h1>
 				<div class="image"></div>
-				<p>Author: <br/> ${book.author} <br/> Page Count: <br/> ${book.pages} pages </p>
+				<p>Written by ${book.author} <br/> ${book.pages} pages long</p>
 				<button class="delete-book" data-id=${book.id}>Remove Book</button>
 				<svg data-id=${book.id} class = "image-test js-read-button" fill="`;
 		if(book.read) HTML += `#8fbc8f"`;

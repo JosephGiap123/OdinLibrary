@@ -1,9 +1,28 @@
+:root{
+	--main-bg-color: #4169e1;
+	/* --secondary-bg-color:  */
+
+	--card-bg-color: beige;
+	--card-support-color: #e1b941;
+
+	--button-valid-color: #8fbc8f;
+	--button-valid-border-color: seagreen;
+
+	--button-invalid-color: lightpink;
+	--button-invalid-border-color: rosybrown;
+
+	--font-grey-color: #747474;
+
+	--invalid-input: red;
+	--invalid-input-bg: ivory;
+}
+
 html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
 
-body, h2, h1{
+body, h2, h1, p{
 	margin: 0;
 }
 
@@ -23,9 +42,9 @@ body, h2, h1{
 	justify-content: center;
 	gap: 24px;
 	grid-area: header;
-	background-color: #4169e1;
+	background-color: var(--button-valid-color);
 	padding: 0 16px 0 16px;
-	color: white;
+	color: var(--card-bg-color);
 }
 
 .image-library{
@@ -34,17 +53,20 @@ body, h2, h1{
 
 .footer{
 	grid-area: footer;
-	background-color: darkslategray;
+	background-color: rgb(75, 100, 100);
 }
 
 .libTitle{
+	margin-top: 8px;
+	text-align: center;
+	justify-self: center;
 	grid-area: libTitle;
 	padding-left: 26px;
 }
 
 .content{
 	display: grid;
-	grid-template-rows: 50px 1fr 1fr;
+	grid-template-rows: 35px 1fr 1fr;
 	grid-template-columns: 1fr 200px;
 	grid-template-areas:
 	"libTitle ."
@@ -76,13 +98,14 @@ body, h2, h1{
 	grid-template-columns: 1fr 100px;
 	grid-template-areas: 
 	"img img"
-	"title desc"
+	"title title"
+	"desc desc"
 	"del read";
 	gap: 10px;
-	border-left: solid gold 6px;
+	border-left: solid var(--card-support-color) 6px;
 	box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.3);
 	border-radius: 4%;
-	background-color: beige;
+	background-color: var(--card-bg-color);
 	align-items: center;
 }
 
@@ -95,13 +118,16 @@ body, h2, h1{
 	grid-area: title;
 	font-size: 20px;
 	align-self: start;
-	border-bottom: solid gold 2px;
+	border-bottom: solid var(--card-support-color) 2px;
 	border-radius: 2px;
+	justify-self: center;
+	text-align: center;
 }
 
 .card > p{
+	margin: 0;
 	grid-area: desc;
-	color: #747474;
+	color: var(--font-grey-color);
 }
 
 .card > button{
@@ -122,18 +148,19 @@ body, h2, h1{
 
 .delete-book{
 	border-radius: 2em;
-	background-color: #8fbc8f;
-	border: solid seagreen 2px;
+	background-color: var(--button-valid-color);
+	border: solid var(--button-valid-border-color) 2px;
 	box-shadow: 1px 1px 1px rgba(60, 60, 60, 0.3);
 }
 
 .delete-book:hover{
 	cursor: pointer;
-	background-color: lightpink;
-	border: solid rosybrown 2px;
+	background-color: var(--button-invalid-color);
+	border: solid var(--button-invalid-border-color) 2px;
 }
 
 .image-test{
+	grid-area: read;
 	width: 30px;
 	align-self: center;
 	justify-self: end;
@@ -145,18 +172,18 @@ body, h2, h1{
 }
 
 .add-to-lib-box{
-	height: 100%;
+	height: auto;
 	grid-area: addForm;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	background-color: green;
-	/* padding: 2em; */
+	background-color: var(--card-bg-color);
+	padding: 10px;
 }
 
-.add-to-lib-box > h2{
-	background-color: blue;
+.add-to-lib-box > h2, .sort-lib > h2{
+	font-size: 16px;
 }
 
 fieldset{
@@ -164,21 +191,28 @@ fieldset{
   padding: 0;
   margin: 0;
   min-width: 0;
-	background-color: blue;
 }
 
 .form-add-book{
-	padding: 6px;
-}
-
-.sort-lib{
-	grid-area: sortForm;
+	padding: 0 6px;
 }
 
 .add-to-lib-box input{
 	display: block;
 	max-width: 80%;
 }
+
+.sort-lib{
+	grid-area: sortForm;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	background-color: var(--card-bg-color);
+	padding: 10px;
+}
+
 
 .sort-lib input{
 	display: block;
@@ -189,6 +223,6 @@ fieldset{
 }
 
 input:not(:focus):invalid{
-	background-color: ivory;
-	border: dotted red 2px;
+	background-color: var(--invalid-input-bg);
+	border: dotted var(--invalid-input) 2px;
 }
