@@ -74,11 +74,12 @@ body, h2, h1, p{
 	"books sortForm";
 	grid-area: cont;
 	background-color: lightgray;
+	min-height: 0; /*important, stuff breaks without it...*/
 }
 
 .cards{
 	grid-area: books;
-	max-height: calc(100vh - 200px - 8em);
+	height: auto;
 	display: grid;
 	overflow-y: scroll;
 	scrollbar-width: none;
@@ -180,6 +181,8 @@ body, h2, h1, p{
 	align-items: flex-start;
 	background-color: var(--card-bg-color);
 	padding: 10px;
+	border: solid var(--card-support-color) 2px;
+	border-radius: 2px;
 }
 
 .add-to-lib-box > h2, .sort-lib > h2{
@@ -211,6 +214,8 @@ fieldset{
 	align-items: flex-start;
 	background-color: var(--card-bg-color);
 	padding: 10px;
+	border: solid var(--card-support-color) 2px;
+	border-radius: 2px;
 }
 
 
