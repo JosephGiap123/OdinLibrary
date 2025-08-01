@@ -81,7 +81,7 @@ class MyLibrary{ //singleton.
 	}
 
 	static compareBook(book1, book2, comparedProperty, order){
-		if(book1[comparedProperty] >= book2[comparedProperty]) return order === "ascend" ? 1 : -1;
+		if(book1[comparedProperty] > book2[comparedProperty]) return order === "ascend" ? 1 : -1;
 		else if(book1[comparedProperty] < book2[comparedProperty]) return order === "ascend" ? -1 : 1;
 		return 0;
 	}
