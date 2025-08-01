@@ -1,32 +1,32 @@
 let myLibrary = [];
 
-// const addButton = document.querySelector(".submit-library");
 let contentCards = document.querySelector(".cards");
 const formAddBook = document.querySelector('.form-add-book');
 const formSort = document.querySelector('.sort-form')
 
+//class stuff now!
 
-function Book(title, author, pages, read){
-	if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
-  }
-	this.id = crypto.randomUUID();
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read;
-}
+class Book{
+	constructor(title, author, pages, read){
+		this.id = crypto.randomUUID();
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read;
+	}
 
-Book.prototype.info = function(){
-		let string = `${this.title}, by ${this.author}, ${this.pages} pages, `;
-		if(this.read) string += 'read already';
+	static info(book){
+		let string = `${book.title}, by ${book.author}, ${book.pages} pages, `;
+		if(book.read) string += 'read already';
 		else string += 'not read yet';
 		return string;
+	}
+
+	swapReadStatus(){
+		this.readStatus = !this.readStatus;
+	}
 }
 
-Book.prototype.swapReadStatus = function(){
-	this.read = !this.read;
-}
 
 function validateBook(title, author, pages){
 	let bookExists = false;
